@@ -1,5 +1,5 @@
-function App() {
-  return "Hi!";
-}
+import { Button } from "./components/buttons";
 
-export default App;
+export function App() {
+  return <Button />;
+}
