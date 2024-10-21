@@ -13,7 +13,7 @@ export function Async({ children, loadingMs }: Props) {
     return () => {
       clearTimeout(timeoutHandler);
     };
-  }, []);
+  }, [loadingMs]);
 
   if (state.status === "LOADING") return "Loading...";
 
