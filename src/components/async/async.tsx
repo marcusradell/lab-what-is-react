@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
-type Props = { children: React.ReactNode };
+type Props = { children: React.ReactNode; loadingMs: number };
 
-export function Async({ children }: Props) {
+export function Async({ children, loadingMs }: Props) {
   const [state, setState] = useState({ status: "LOADING" });
 
   useEffect(() => {
     const timeoutHandler = setTimeout(() => {
       setState({ status: "SUCCEEDED" });
-    }, 400);
+    }, loadingMs);
 
     return () => {
       clearTimeout(timeoutHandler);

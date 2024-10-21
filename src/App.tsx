@@ -10,7 +10,7 @@ function Data({ data }: DataProps) {
 
 export function App() {
   return (
-    <Async>
+    <Async loadingMs={2000}>
       <Data data={[{ id: "1", name: "Marcus" }]} />
     </Async>
   );
