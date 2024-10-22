@@ -1,18 +1,12 @@
-import { Async, Card } from "./components";
+import { Async, Card, JsonView } from "./components";
 
-type DataProps = {
-  data: { id: string; name: string }[];
-};
-
-function Data({ data }: DataProps) {
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
-}
+const data = [{ id: "1", name: "Marcus" }];
 
 export function App() {
   return (
     <Card>
       <Async loadingMs={2000}>
-        <Data data={[{ id: "1", name: "Marcus" }]} />
+        <JsonView data={data} />
       </Async>
     </Card>
   );
