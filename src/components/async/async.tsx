@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
+import { useLoader } from "./use-loader";
 
 type Props = { children: React.ReactNode; loadingMs: number };
 
 export function Async({ children, loadingMs }: Props) {
-  const [state, setState] = useState({ status: "LOADING" });
-
-  useEffect(() => {
-    const timeoutHandler = setTimeout(() => {
-      setState({ status: "SUCCEEDED" });
-    }, loadingMs);
-
-    return () => {
-      clearTimeout(timeoutHandler);
-    };
-  }, [loadingMs]);
+  const state = useLoader(loadingMs);
 
   if (state.status === "LOADING") return "Loading...";
 
