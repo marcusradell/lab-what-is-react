@@ -1,11 +1,7 @@
-import { useState } from "react";
+import { useTheme } from "./use-theme";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return <button onClick={toggleTheme}>{theme}</button>;
 }
